@@ -26,11 +26,18 @@ class LoginViewController: UIViewController ,FBSDKLoginButtonDelegate{
         
         self.twLoginView.logInCompletion = {(session, error) in
             if let unwrappedSession = session {
-                var str = self.post("twittercheck",message: "{\"user_id\":\"" + "tw_" + unwrappedSession.userName + "\"}")
-                print(str)
-                if str == "0"{
-                    let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "GroupSelectStoryBoard" ) as! UIViewController
-                    self.presentViewController( targetViewController, animated: true, completion: nil)
+                if self.post("twittercheck",message: "{\"user_id\":\"" + "tw_" + unwrappedSession.userName + "\"}") == "Optional(0)"{
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                        // do some task
+                        sleep(1)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            // update some UI
+                            self.defaults.setObject("tw_" + unwrappedSession.userName, forKey: "myId")
+                            let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "GroupSelectStoryBoard" ) as! UIViewController
+                            self.presentViewController( targetViewController, animated: true, completion: nil)
+                        });
+                    });
+                    
                 }else{
                     //登録されてねえ
                 }
@@ -38,8 +45,6 @@ class LoginViewController: UIViewController ,FBSDKLoginButtonDelegate{
                 NSLog("Login error: %@", error!.localizedDescription);
             }
         }
-
-
     }
     
     

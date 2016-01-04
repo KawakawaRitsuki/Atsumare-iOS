@@ -51,6 +51,21 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
         })
     }
     
+    @IBAction func logout(){
+        let alertController = UIAlertController(title: "確認", message: "本当にログアウトしてもいいですか？", preferredStyle: .Alert)
+        let otherAction = UIAlertAction(title: "OK", style: .Default) {
+            action in self.defaults.setObject("", forKey: "myId")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
+            action in print("Pushed CANCEL!")
+        }
+        
+        alertController.addAction(otherAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // セルの行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groupName.count
@@ -61,8 +76,10 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
         let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle ,reuseIdentifier: "Cell")
         cell.textLabel!.text = groupName[indexPath.row]
         cell.detailTextLabel!.text = "GroupID:" + groupId[indexPath.row]
+        cell.backgroundColor = UIColor(red:1.0,green:0.98,blue:	0.875,alpha:1.0)
         return cell;
     }
+    
     
     // セル選択リスナ
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

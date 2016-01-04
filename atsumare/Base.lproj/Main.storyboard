@@ -113,6 +113,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECP-6E-AjN">
                                 <rect key="frame" x="505" y="28" width="75" height="30"/>
                                 <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <action selector="logout" destination="Dqy-Tz-Ckx" eventType="touchUpInside" id="fYY-t5-8h4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-y6-d48">
                                 <rect key="frame" x="20" y="550" width="90" height="30"/>
@@ -124,8 +127,7 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-fi-GCL">
                                 <rect key="frame" x="20" y="66" width="560" height="476"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomCell" selectionStyle="default" indentationWidth="10" textLabel="XF4-aX-7KY" detailTextLabel="80G-xT-LmN" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="OFo-Dg-Uc9">
                                         <rect key="frame" x="0.0" y="28" width="560" height="65"/>
@@ -161,7 +163,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="HFa-IU-1BK" firstAttribute="leading" secondItem="75d-wW-jcM" secondAttribute="leadingMargin" constant="5" id="Gbd-Zp-rcH"/>
                                                 <constraint firstItem="vvb-XS-s9O" firstAttribute="leading" secondItem="75d-wW-jcM" secondAttribute="leadingMargin" constant="5" id="NAx-6H-Kz9"/>
@@ -175,12 +176,11 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.98039215686274506" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tZB-iD-EXq" firstAttribute="trailing" secondItem="aT7-RX-bTM" secondAttribute="trailingMargin" id="AyO-w6-rpc"/>
                             <constraint firstItem="ECP-6E-AjN" firstAttribute="top" secondItem="wIk-AB-WZ0" secondAttribute="bottom" constant="8" id="Ei4-iW-Xuq"/>

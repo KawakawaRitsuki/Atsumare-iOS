@@ -8,81 +8,105 @@
 
 import UIKit
 import CoreLocation
+import MapKit
+import SwiftyJSON
 
+class MapViewController: UIViewController {
 
-class ViewController: UIViewController, CLLocationManagerDelegate  {
-
-    // 現在地の位置情報の取得にはCLLocationManagerを使用
     var lm: CLLocationManager!
-    // 取得した緯度を保持するインスタンス
     var latitude: CLLocationDegrees!
-    // 取得した経度を保持するインスタンス
     var longitude: CLLocationDegrees!
+    
+    var myId: String = ""
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var timer:NSTimer! = nil
+    var mMarker = Dictionary<Int, MKPointAnnotation>()
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
 
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "集まれ！"
+        myId = appDelegate.myId
         
-        // フィールドの初期化
+        appDelegate.isMap = true
+        
+        let leftBarButton = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "back")
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
         lm = CLLocationManager()
         longitude = CLLocationDegrees()
         latitude = CLLocationDegrees()
-        
-        // CLLocationManagerをDelegateに指定
         lm.delegate = self
-        
-        // 位置情報取得の許可を求めるメッセージの表示.必須.
         lm.requestAlwaysAuthorization()
-        // 位置情報の精度を指定.任意,
-        // lm.desiredAccuracy = kCLLocationAccuracyBest
-        // 位置情報取得間隔を指定.指定した値(メートル)移動したら位置情報を更新する.任意.
-        // lm.distanceFilter = 1000
+        
         if #available(iOS 9.0, *) {
             lm.allowsBackgroundLocationUpdates = true
         }
         
-        // GPSの使用を開始する
         lm.startUpdatingLocation()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(
+            1.0,
+            target:self,
+            selector: Selector("tickTimer:"),
+            userInfo: nil,
+            repeats: true)
+        
+        timer.fire()
     }
     
-    /* 位置情報取得成功時に実行される関数 */
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
-        // 取得した緯度がnewLocation.coordinate.longitudeに格納されている
-        latitude = newLocation.coordinate.latitude
-        // 取得した経度がnewLocation.coordinate.longitudeに格納されている
-        longitude = newLocation.coordinate.longitude
-        // 取得した緯度・経度をLogに表示
-        
-        post("latiitude: \(latitude) , longitude: \(longitude)")
-        NSLog("latiitude: \(latitude) , longitude: \(longitude)")
-        
-        // GPSの使用を停止する.停止しない限りGPSは実行され,指定間隔で更新され続ける.
-        // lm.stopUpdatingLocation()
-    }
-    
-    /* 位置情報取得失敗時に実行される関数 */
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        // この例ではLogにErrorと表示するだけ.
-        NSLog("Error")
-    }
-
-    func post(let str: String){
-        // まずPOSTで送信したい情報をセット。
-        let strData = str.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let url = NSURL(string: "http://192.168.43.115:8080/post")
-        var request = NSMutableURLRequest(URL: url!)
-        
-        // この下二行を見つけるのに、少々てこずりました。
-        request.HTTPMethod = "POST"
-        request.HTTPBody = strData
-        
-        do {
-            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
-        } catch (let e) {
-            print(e)
+    func back() {
+        //戻る処理的な何か
+        let alertController = UIAlertController(title: "確認", message: "終了しますか？", preferredStyle: .Alert)
+        let otherAction = UIAlertAction(title: "OK", style: .Default) {
+            action in
+            self.timer.invalidate()
+            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            if(ApiConnection.post("grouplogout", message: "{\"user_id\":\"" + self.myId + "\",\"group_id\":\"" + self.appDelegate.groupId + "\"}") == "1"){
+                ApiConnection.post("setusing", message: "{\"group_id\":\"" + self.appDelegate.groupId + "\",\"using\":1}")
+            }
+            self.appDelegate.isMap = false //appDelegateの変数を操作
+            self.lm.stopUpdatingLocation()
         }
+        let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
+            action in
+        }
+        
+        alertController.addAction(otherAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // タイマー処理
+    func tickTimer(timer: NSTimer) {//ここのtimerには生成元のtimerが入ってるっぽい
+        var json = JSON.parse(ApiConnection.post("getlocate" , message: "{\"group_id\":\"" + appDelegate.groupId + "\"}"))
+        for var i = 0; i < json["data"].count; i++ {
+            setMarker(json["data"][i]["user_name"].stringValue,lon: json["data"][i]["longitude"].doubleValue, lat: json["data"][i]["latitude"].doubleValue,login: json["data"][i]["login"].intValue,id: i)
+        }
+    }
+    
+    func setMarker(name: String,lon: Double,lat: Double,login: Int,id: Int){
+        if (mMarker[id] == nil){
+            if (login == 0){
+                let mapPoint : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat,lon)
+                mMarker[id] = MKPointAnnotation()
+                mMarker[id]!.coordinate  = mapPoint
+                mMarker[id]!.title       = name
+                mapView.addAnnotation(mMarker[id]!)
+            }
+        }else{
+            if(login==0){
+                let mapPoint : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat,lon)
+                mMarker[id]!.coordinate  = mapPoint
+                mapView.addAnnotation(mMarker[id]!)
+            }else{
+                mapView.removeAnnotation(mMarker[id]!)
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,4 +114,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate  {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension MapViewController :CLLocationManagerDelegate{
+    
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
+        latitude = newLocation.coordinate.latitude
+        longitude = newLocation.coordinate.longitude
+        
+        ApiConnection.post("regist", message: "{\"user_id\":\"\(myId)\",\"latitude\":\"\(latitude)\",\"longitude\":\"\(longitude)\"}");
+        print("latiitude: \(latitude) , longitude: \(longitude)")
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        NSLog("Error")
+    }
+    
 }

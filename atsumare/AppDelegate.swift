@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import FBSDKLoginKit
 import Fabric
 import TwitterKit
 import Crashlytics
@@ -17,10 +18,14 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var isMap = false
+    var myId = ""
+    var groupId = ""
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self, Twitter.self])
         // Override point for customization after application launch.
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
@@ -54,8 +59,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        if(isMap){
+            if(self.post("grouplogout", message: "{\"user_id\":\"" + self.myId + "\",\"group_id\":\"" + self.groupId + "\"}") == "1"){
+                self.post("setusing", message: "{\"group_id\":\"" + self.groupId + "\",\"using\":1}")
+            }
+        }
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
-
+    func post( url:String , message: String) -> (String){
+        // まずPOSTで送信したい情報をセット。
+        let strData = message.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let url_ = NSURL(string: "http://kawakawaplanning.dip.jp:8080/"+url)
+        let request = NSMutableURLRequest(URL: url_!)
+        
+        // この下二行を見つけるのに、少々てこずりました。
+        request.HTTPMethod = "POST"
+        request.HTTPBody = strData
+        
+        do {
+            let data:NSData = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let str = NSString(data:data, encoding:NSUTF8StringEncoding)
+            return str as! String
+        } catch (let e) {
+            print(e)
+        }
+        return ""
+    }
 
 }
 

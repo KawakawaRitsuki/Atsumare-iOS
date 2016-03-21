@@ -13,6 +13,13 @@
 		EB126DBA1C36608300B62A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB126DB91C36608300B62A09 /* Assets.xcassets */; };
 		EB126DBD1C36608300B62A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB126DBB1C36608300B62A09 /* LaunchScreen.storyboard */; };
 		EB126DC51C36639A00B62A09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB126DC41C36639A00B62A09 /* MapKit.framework */; };
+		EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB298C201C413AD2000B6697 /* WaitViewController.swift */; };
+		EB4101B71C9FCE400047D734 /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B61C9FCE400047D734 /* ApiConnection.swift */; };
+		EB4101B91C9FE35E0047D734 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B81C9FE35E0047D734 /* LocationManager.swift */; };
+		EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C41C5240D2009AD547 /* CustomCell.swift */; };
+		EB4505C71C524111009AD547 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C61C524111009AD547 /* LoginModel.swift */; };
+		EB4505C91C5244A6009AD547 /* icon_success.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505C81C5244A6009AD547 /* icon_success.png */; };
+		EB4505CB1C5244AF009AD547 /* icon_error.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505CA1C5244AF009AD547 /* icon_error.png */; };
 		EBFDD01F1C3918B900762D8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFDD01E1C3918B900762D8E /* LoginViewController.swift */; };
 		EBFDD0391C39376C00762D8E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD0371C39376C00762D8E /* FBSDKCoreKit.framework */; };
 		EBFDD03A1C39376C00762D8E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD0381C39376C00762D8E /* FBSDKLoginKit.framework */; };
@@ -35,6 +42,13 @@
 		EB126DBC1C36608300B62A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB126DBE1C36608300B62A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB126DC41C36639A00B62A09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EB298C201C413AD2000B6697 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
+		EB4101B61C9FCE400047D734 /* ApiConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
+		EB4101B81C9FE35E0047D734 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EB4505C41C5240D2009AD547 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
+		EB4505C61C524111009AD547 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		EB4505C81C5244A6009AD547 /* icon_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_success.png; path = ../../../../../../../Downloads/icon_success.png; sourceTree = "<group>"; };
+		EB4505CA1C5244AF009AD547 /* icon_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_error.png; path = ../../../../../../../Downloads/icon_error.png; sourceTree = "<group>"; };
 		EBFDD01E1C3918B900762D8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EBFDD0371C39376C00762D8E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		EBFDD0381C39376C00762D8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -97,16 +111,47 @@
 		EB126DB11C36608300B62A09 /* atsumare */ = {
 			isa = PBXGroup;
 			children = (
+				EB4101B51C9FCE1F0047D734 /* Atsumare */,
+				EB4101B41C9FCD790047D734 /* Image */,
+				EB4101B31C9FCD430047D734 /* ViewController */,
+				EB4505C41C5240D2009AD547 /* CustomCell.swift */,
 				EB126DB21C36608300B62A09 /* AppDelegate.swift */,
-				EB126DB41C36608300B62A09 /* MapViewController.swift */,
 				EB126DB61C36608300B62A09 /* Main.storyboard */,
-				EBFDD01E1C3918B900762D8E /* LoginViewController.swift */,
 				EB126DB91C36608300B62A09 /* Assets.xcassets */,
 				EB126DBB1C36608300B62A09 /* LaunchScreen.storyboard */,
 				EB126DBE1C36608300B62A09 /* Info.plist */,
-				EBFDD04C1C3A580E00762D8E /* SelectGroupViewController.swift */,
+				EB4505C61C524111009AD547 /* LoginModel.swift */,
 			);
 			path = atsumare;
+			sourceTree = "<group>";
+		};
+		EB4101B31C9FCD430047D734 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB126DB41C36608300B62A09 /* MapViewController.swift */,
+				EBFDD01E1C3918B900762D8E /* LoginViewController.swift */,
+				EBFDD04C1C3A580E00762D8E /* SelectGroupViewController.swift */,
+				EB298C201C413AD2000B6697 /* WaitViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		EB4101B41C9FCD790047D734 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				EB4505C81C5244A6009AD547 /* icon_success.png */,
+				EB4505CA1C5244AF009AD547 /* icon_error.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		EB4101B51C9FCE1F0047D734 /* Atsumare */ = {
+			isa = PBXGroup;
+			children = (
+				EB4101B61C9FCE400047D734 /* ApiConnection.swift */,
+				EB4101B81C9FE35E0047D734 /* LocationManager.swift */,
+			);
+			name = Atsumare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFDD0441C394A3900762D8E /* TwitterKitResources.bundle in Resources */,
+				EB4505CB1C5244AF009AD547 /* icon_error.png in Resources */,
+				EB4505C91C5244A6009AD547 /* icon_success.png in Resources */,
 				EB126DBD1C36608300B62A09 /* LaunchScreen.storyboard in Resources */,
 				EB126DBA1C36608300B62A09 /* Assets.xcassets in Resources */,
 				EB126DB81C36608300B62A09 /* Main.storyboard in Resources */,
@@ -207,9 +254,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFDD04D1C3A580E00762D8E /* SelectGroupViewController.swift in Sources */,
+				EB4505C71C524111009AD547 /* LoginModel.swift in Sources */,
 				EBFDD01F1C3918B900762D8E /* LoginViewController.swift in Sources */,
+				EB4101B71C9FCE400047D734 /* ApiConnection.swift in Sources */,
 				EB126DB51C36608300B62A09 /* MapViewController.swift in Sources */,
+				EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */,
+				EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */,
 				EB126DB31C36608300B62A09 /* AppDelegate.swift in Sources */,
+				EB4101B91C9FE35E0047D734 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

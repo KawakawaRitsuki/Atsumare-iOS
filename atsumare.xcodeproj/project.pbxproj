@@ -16,13 +16,13 @@
 		EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB298C201C413AD2000B6697 /* WaitViewController.swift */; };
 		EB4101B71C9FCE400047D734 /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B61C9FCE400047D734 /* ApiConnection.swift */; };
 		EB4101B91C9FE35E0047D734 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B81C9FE35E0047D734 /* Location.swift */; };
+		EB4101BC1CA12A820047D734 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4101BA1CA12A820047D734 /* FBSDKCoreKit.framework */; };
+		EB4101BD1CA12A820047D734 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4101BB1CA12A820047D734 /* FBSDKLoginKit.framework */; };
 		EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C41C5240D2009AD547 /* CustomCell.swift */; };
 		EB4505C71C524111009AD547 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C61C524111009AD547 /* LoginModel.swift */; };
 		EB4505C91C5244A6009AD547 /* icon_success.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505C81C5244A6009AD547 /* icon_success.png */; };
 		EB4505CB1C5244AF009AD547 /* icon_error.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505CA1C5244AF009AD547 /* icon_error.png */; };
 		EBFDD01F1C3918B900762D8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFDD01E1C3918B900762D8E /* LoginViewController.swift */; };
-		EBFDD0391C39376C00762D8E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD0371C39376C00762D8E /* FBSDKCoreKit.framework */; };
-		EBFDD03A1C39376C00762D8E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD0381C39376C00762D8E /* FBSDKLoginKit.framework */; };
 		EBFDD03E1C3948DF00762D8E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD03C1C3948DF00762D8E /* Fabric.framework */; };
 		EBFDD03F1C3948DF00762D8E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD03D1C3948DF00762D8E /* Crashlytics.framework */; };
 		EBFDD0431C394A3900762D8E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFDD0401C394A3900762D8E /* TwitterKit.framework */; };
@@ -45,13 +45,13 @@
 		EB298C201C413AD2000B6697 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 		EB4101B61C9FCE400047D734 /* ApiConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
 		EB4101B81C9FE35E0047D734 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EB4101BA1CA12A820047D734 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		EB4101BB1CA12A820047D734 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EB4505C41C5240D2009AD547 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
 		EB4505C61C524111009AD547 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EB4505C81C5244A6009AD547 /* icon_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_success.png; path = ../../../../../../../Downloads/icon_success.png; sourceTree = "<group>"; };
 		EB4505CA1C5244AF009AD547 /* icon_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_error.png; path = ../../../../../../../Downloads/icon_error.png; sourceTree = "<group>"; };
 		EBFDD01E1C3918B900762D8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		EBFDD0371C39376C00762D8E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		EBFDD0381C39376C00762D8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		EBFDD03C1C3948DF00762D8E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		EBFDD03D1C3948DF00762D8E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		EBFDD0401C394A3900762D8E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
@@ -69,11 +69,11 @@
 			files = (
 				EBFDD0521C3A8BD700762D8E /* Alamofire.framework in Frameworks */,
 				EBFDD0531C3A8BD700762D8E /* SwiftyJSON.framework in Frameworks */,
-				EBFDD0391C39376C00762D8E /* FBSDKCoreKit.framework in Frameworks */,
+				EB4101BD1CA12A820047D734 /* FBSDKLoginKit.framework in Frameworks */,
 				EBFDD03F1C3948DF00762D8E /* Crashlytics.framework in Frameworks */,
 				EBFDD0451C394A3900762D8E /* TwitterCore.framework in Frameworks */,
-				EBFDD03A1C39376C00762D8E /* FBSDKLoginKit.framework in Frameworks */,
 				EB126DC51C36639A00B62A09 /* MapKit.framework in Frameworks */,
+				EB4101BC1CA12A820047D734 /* FBSDKCoreKit.framework in Frameworks */,
 				EBFDD03E1C3948DF00762D8E /* Fabric.framework in Frameworks */,
 				EBFDD0431C394A3900762D8E /* TwitterKit.framework in Frameworks */,
 			);
@@ -85,15 +85,15 @@
 		EB126DA61C36608300B62A09 = {
 			isa = PBXGroup;
 			children = (
+				EB4101BA1CA12A820047D734 /* FBSDKCoreKit.framework */,
+				EB4101BB1CA12A820047D734 /* FBSDKLoginKit.framework */,
 				EBFDD0501C3A8BD700762D8E /* Alamofire.framework */,
 				EBFDD0511C3A8BD700762D8E /* SwiftyJSON.framework */,
 				EBFDD03C1C3948DF00762D8E /* Fabric.framework */,
 				EBFDD03D1C3948DF00762D8E /* Crashlytics.framework */,
-				EBFDD0371C39376C00762D8E /* FBSDKCoreKit.framework */,
 				EBFDD0401C394A3900762D8E /* TwitterKit.framework */,
 				EBFDD0411C394A3900762D8E /* TwitterKitResources.bundle */,
 				EBFDD0421C394A3900762D8E /* TwitterCore.framework */,
-				EBFDD0381C39376C00762D8E /* FBSDKLoginKit.framework */,
 				EB126DC41C36639A00B62A09 /* MapKit.framework */,
 				EB126DB11C36608300B62A09 /* atsumare */,
 				EB126DB01C36608300B62A09 /* Products */,

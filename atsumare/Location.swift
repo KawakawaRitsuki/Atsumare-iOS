@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import SwiftyJSON
 
-class Location{
+class Location:NSObject{
     
     var lm: CLLocationManager!
     var latitude: CLLocationDegrees!
@@ -20,10 +20,11 @@ class Location{
     var groupId = ""
     var timer:NSTimer! = nil
     var mMarker = Dictionary<Int, MKPointAnnotation>()
-    var call:(name: String,lon: Double,lat: Double,login: Int,id: Int) -> Void!
+    var call:((name: String,lon: Double,lat: Double,login: Int,id: Int) -> Void)!
     
     
     init(myId: String,groupId:String,callback: (name: String,lon: Double,lat: Double,login: Int,id: Int) -> Void) {
+        super.init()
         self.myId = myId
         lm = CLLocationManager()
         longitude = CLLocationDegrees()
@@ -86,5 +87,4 @@ extension Location: CLLocationManagerDelegate {
     @objc func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("Error")
     }
-    
 }

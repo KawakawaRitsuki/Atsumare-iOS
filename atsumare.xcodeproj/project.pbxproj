@@ -15,7 +15,7 @@
 		EB126DC51C36639A00B62A09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB126DC41C36639A00B62A09 /* MapKit.framework */; };
 		EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB298C201C413AD2000B6697 /* WaitViewController.swift */; };
 		EB4101B71C9FCE400047D734 /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B61C9FCE400047D734 /* ApiConnection.swift */; };
-		EB4101B91C9FE35E0047D734 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B81C9FE35E0047D734 /* LocationManager.swift */; };
+		EB4101B91C9FE35E0047D734 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B81C9FE35E0047D734 /* Location.swift */; };
 		EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C41C5240D2009AD547 /* CustomCell.swift */; };
 		EB4505C71C524111009AD547 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C61C524111009AD547 /* LoginModel.swift */; };
 		EB4505C91C5244A6009AD547 /* icon_success.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505C81C5244A6009AD547 /* icon_success.png */; };
@@ -44,7 +44,7 @@
 		EB126DC41C36639A00B62A09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EB298C201C413AD2000B6697 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 		EB4101B61C9FCE400047D734 /* ApiConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
-		EB4101B81C9FE35E0047D734 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EB4101B81C9FE35E0047D734 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EB4505C41C5240D2009AD547 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
 		EB4505C61C524111009AD547 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EB4505C81C5244A6009AD547 /* icon_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_success.png; path = ../../../../../../../Downloads/icon_success.png; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4101B61C9FCE400047D734 /* ApiConnection.swift */,
-				EB4101B81C9FE35E0047D734 /* LocationManager.swift */,
+				EB4101B81C9FE35E0047D734 /* Location.swift */,
 			);
 			name = Atsumare;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 				EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */,
 				EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */,
 				EB126DB31C36608300B62A09 /* AppDelegate.swift in Sources */,
-				EB4101B91C9FE35E0047D734 /* LocationManager.swift in Sources */,
+				EB4101B91C9FE35E0047D734 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import SwiftyJSON
 
-class Location {
+class Location{
     
     var lm: CLLocationManager!
     var latitude: CLLocationDegrees!
@@ -83,7 +83,7 @@ extension Location: CLLocationManagerDelegate {
         print("latiitude: \(latitude) , longitude: \(longitude)")
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    @objc func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("Error")
     }
     

@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
 import MapKit
-import SwiftyJSON
 
 class MapViewController: UIViewController {
     
@@ -32,7 +30,7 @@ class MapViewController: UIViewController {
         let leftBarButton = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "back")
         self.navigationItem.leftBarButtonItem = leftBarButton
         
-        location = Location(myId: appDelegate.myId,groupId: appDelegate.groupId){(name: String,lon: Double,lat: Double,login: Int,id: Int) -> () in
+        location = Location(myId: appDelegate.myId,groupId: appDelegate.groupId){ (name: String,lon: Double,lat: Double,login: Int,id: Int) -> () in
             if (self.mMarker[id] == nil){
                 if (login == 0){
                     let mapPoint : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat,lon)
@@ -74,11 +72,6 @@ class MapViewController: UIViewController {
         alertController.addAction(otherAction)
         alertController.addAction(cancelAction)
         presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func setMarker(name: String,lon: Double,lat: Double,login: Int,id: Int){
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

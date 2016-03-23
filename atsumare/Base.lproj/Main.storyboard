@@ -52,15 +52,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slQ-E3-Eef" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="550" width="560" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bee" translatesAutoresizingMaskIntoConstraints="NO" id="Fzs-zh-oMK">
-                                <rect key="frame" x="0.0" y="28" width="600" height="385"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="337"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="集まれ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqK-19-dfZ">
-                                <rect key="frame" x="0.0" y="421" width="600" height="83"/>
+                                <rect key="frame" x="0.0" y="373" width="600" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="GY3-PZ-b1N"/>
                                 </constraints>
@@ -69,7 +65,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDU-lS-Bc4" customClass="TWTRLogInButton">
-                                <rect key="frame" x="20" y="512" width="560" height="30"/>
+                                <rect key="frame" x="20" y="464" width="560" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slQ-E3-Eef" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="20" y="532" width="560" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -77,11 +77,8 @@
                         <constraints>
                             <constraint firstItem="Fzs-zh-oMK" firstAttribute="leading" secondItem="5Ge-4x-bpE" secondAttribute="leadingMargin" constant="20" id="3mQ-1l-Gjg"/>
                             <constraint firstItem="slQ-E3-Eef" firstAttribute="leading" secondItem="5Ge-4x-bpE" secondAttribute="leadingMargin" id="4ob-YP-FKK"/>
-                            <constraint firstItem="slQ-E3-Eef" firstAttribute="top" secondItem="cDU-lS-Bc4" secondAttribute="bottom" constant="8" id="Esi-v9-AFA"/>
                             <constraint firstItem="9ft-x8-RaD" firstAttribute="top" secondItem="slQ-E3-Eef" secondAttribute="bottom" constant="20" id="FcQ-qt-euB"/>
-                            <constraint firstItem="lqK-19-dfZ" firstAttribute="top" secondItem="Fzs-zh-oMK" secondAttribute="bottom" constant="8" id="GvS-44-9kJ"/>
                             <constraint firstItem="cDU-lS-Bc4" firstAttribute="trailing" secondItem="5Ge-4x-bpE" secondAttribute="trailingMargin" id="MCT-KK-dQl"/>
-                            <constraint firstItem="cDU-lS-Bc4" firstAttribute="top" secondItem="lqK-19-dfZ" secondAttribute="bottom" constant="8" id="V0U-XF-ckJ"/>
                             <constraint firstItem="Fzs-zh-oMK" firstAttribute="top" secondItem="KER-gM-qwx" secondAttribute="bottom" constant="8" id="dz4-8S-53K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fzs-zh-oMK" secondAttribute="trailing" constant="20" id="f5Z-sO-W7U"/>
                             <constraint firstItem="lqK-19-dfZ" firstAttribute="top" secondItem="Fzs-zh-oMK" secondAttribute="bottom" constant="8" id="gKI-A2-8ZI"/>
@@ -134,12 +131,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-fi-GCL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-y6-d48">
+                                <rect key="frame" x="20" y="562" width="90" height="30"/>
+                                <state key="normal" title="グループ作成"/>
+                                <connections>
+                                    <action selector="makeGroup:" destination="Dqy-Tz-Ckx" eventType="touchUpInside" id="1gY-Xv-rWo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZB-iD-EXq">
+                                <rect key="frame" x="475" y="562" width="105" height="30"/>
+                                <state key="normal" title="グループに入る"/>
+                                <connections>
+                                    <action selector="inGroup:" destination="Dqy-Tz-Ckx" eventType="touchUpInside" id="NkS-sj-cgP"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-fi-GCL">
                                 <rect key="frame" x="20" y="72" width="560" height="482"/>
                                 <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.87282403519999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" textLabel="XF4-aX-7KY" detailTextLabel="80G-xT-LmN" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="OFo-Dg-Uc9">
-                                        <rect key="frame" x="0.0" y="92" width="560" height="65"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OFo-Dg-Uc9" id="75d-wW-jcM">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="64"/>
@@ -188,32 +199,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-y6-d48">
-                                <rect key="frame" x="20" y="562" width="90" height="30"/>
-                                <state key="normal" title="グループ作成"/>
-                                <connections>
-                                    <action selector="makeGroup:" destination="Dqy-Tz-Ckx" eventType="touchUpInside" id="1gY-Xv-rWo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZB-iD-EXq">
-                                <rect key="frame" x="475" y="562" width="105" height="30"/>
-                                <state key="normal" title="グループに入る"/>
-                                <connections>
-                                    <action selector="inGroup:" destination="Dqy-Tz-Ckx" eventType="touchUpInside" id="NkS-sj-cgP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215686274506" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tZB-iD-EXq" firstAttribute="top" secondItem="UWU-fi-GCL" secondAttribute="bottom" constant="8" id="4rg-Wr-675"/>
-                            <constraint firstItem="UWU-fi-GCL" firstAttribute="leading" secondItem="aT7-RX-bTM" secondAttribute="leadingMargin" id="Dkf-PG-JBe"/>
-                            <constraint firstItem="DP2-jo-Qch" firstAttribute="top" secondItem="NF7-y6-d48" secondAttribute="bottom" constant="8" id="E9P-hm-VHx"/>
-                            <constraint firstItem="UWU-fi-GCL" firstAttribute="top" secondItem="wIk-AB-WZ0" secondAttribute="bottom" constant="8" id="KjH-kl-MWY"/>
-                            <constraint firstItem="NF7-y6-d48" firstAttribute="leading" secondItem="aT7-RX-bTM" secondAttribute="leadingMargin" id="U9K-6h-eZ7"/>
-                            <constraint firstItem="NF7-y6-d48" firstAttribute="top" secondItem="UWU-fi-GCL" secondAttribute="bottom" constant="8" id="aDg-nI-met"/>
-                            <constraint firstItem="DP2-jo-Qch" firstAttribute="top" secondItem="tZB-iD-EXq" secondAttribute="bottom" constant="8" id="e82-bS-jix"/>
-                            <constraint firstItem="UWU-fi-GCL" firstAttribute="trailing" secondItem="aT7-RX-bTM" secondAttribute="trailingMargin" id="fJB-Yk-1EU"/>
-                            <constraint firstItem="tZB-iD-EXq" firstAttribute="trailing" secondItem="aT7-RX-bTM" secondAttribute="trailingMargin" id="wzD-oN-U1a"/>
+                            <constraint firstItem="UWU-fi-GCL" firstAttribute="top" secondItem="wIk-AB-WZ0" secondAttribute="bottom" constant="8" id="AkJ-O9-5fx"/>
+                            <constraint firstItem="tZB-iD-EXq" firstAttribute="trailing" secondItem="aT7-RX-bTM" secondAttribute="trailingMargin" id="ECt-PY-ycq"/>
+                            <constraint firstItem="NF7-y6-d48" firstAttribute="leading" secondItem="aT7-RX-bTM" secondAttribute="leadingMargin" id="Ffh-EJ-mAP"/>
+                            <constraint firstItem="UWU-fi-GCL" firstAttribute="leading" secondItem="aT7-RX-bTM" secondAttribute="leadingMargin" id="FhY-xx-REJ"/>
+                            <constraint firstItem="DP2-jo-Qch" firstAttribute="top" secondItem="NF7-y6-d48" secondAttribute="bottom" constant="8" id="Hsd-32-DMI"/>
+                            <constraint firstItem="UWU-fi-GCL" firstAttribute="trailing" secondItem="aT7-RX-bTM" secondAttribute="trailingMargin" id="KfJ-b2-O55"/>
+                            <constraint firstItem="tZB-iD-EXq" firstAttribute="top" secondItem="UWU-fi-GCL" secondAttribute="bottom" constant="8" id="Noz-g3-F6T"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="tZB-iD-EXq" secondAttribute="bottom" constant="8" id="lYu-3G-Zhj"/>
+                            <constraint firstItem="NF7-y6-d48" firstAttribute="top" secondItem="UWU-fi-GCL" secondAttribute="bottom" constant="8" id="zSB-go-DQ7"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

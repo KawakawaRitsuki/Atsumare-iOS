@@ -93,14 +93,8 @@ extension WaitViewController: UITableViewDelegate, UITableViewDataSource {
     
     // セルの内容を変更
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
-        //        let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle ,reuseIdentifier: "CustomCell")
-        //        cell.textLabel!.text = groupName[indexPath.row]
-        //        cell.detailTextLabel!.text = "GroupID:" + groupId[indexPath.row]
-        //        cell.backgroundColor = UIColor(red:1.0,green:0.98,blue:	0.875,alpha:1.0)
         let cell: CustomCell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! CustomCell
-        
         cell.setCell(cells[indexPath.row])
-        
         return cell;
     }
     

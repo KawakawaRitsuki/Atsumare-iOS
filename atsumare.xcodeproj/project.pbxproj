@@ -18,6 +18,7 @@
 		EB4101B91C9FE35E0047D734 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101B81C9FE35E0047D734 /* Location.swift */; };
 		EB4101BC1CA12A820047D734 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4101BA1CA12A820047D734 /* FBSDKCoreKit.framework */; };
 		EB4101BD1CA12A820047D734 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4101BB1CA12A820047D734 /* FBSDKLoginKit.framework */; };
+		EB4101BF1CA177A30047D734 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4101BE1CA177A30047D734 /* Group.swift */; };
 		EB4505C51C5240D2009AD547 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C41C5240D2009AD547 /* CustomCell.swift */; };
 		EB4505C71C524111009AD547 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4505C61C524111009AD547 /* LoginModel.swift */; };
 		EB4505C91C5244A6009AD547 /* icon_success.png in Resources */ = {isa = PBXBuildFile; fileRef = EB4505C81C5244A6009AD547 /* icon_success.png */; };
@@ -47,6 +48,7 @@
 		EB4101B81C9FE35E0047D734 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EB4101BA1CA12A820047D734 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		EB4101BB1CA12A820047D734 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		EB4101BE1CA177A30047D734 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EB4505C41C5240D2009AD547 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
 		EB4505C61C524111009AD547 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EB4505C81C5244A6009AD547 /* icon_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_success.png; path = ../../../../../../../Downloads/icon_success.png; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				EB4101B61C9FCE400047D734 /* ApiConnection.swift */,
 				EB4101B81C9FE35E0047D734 /* Location.swift */,
+				EB4101BE1CA177A30047D734 /* Group.swift */,
 			);
 			name = Atsumare;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				EBFDD04D1C3A580E00762D8E /* SelectGroupViewController.swift in Sources */,
 				EB4505C71C524111009AD547 /* LoginModel.swift in Sources */,
 				EBFDD01F1C3918B900762D8E /* LoginViewController.swift in Sources */,
+				EB4101BF1CA177A30047D734 /* Group.swift in Sources */,
 				EB4101B71C9FCE400047D734 /* ApiConnection.swift in Sources */,
 				EB126DB51C36608300B62A09 /* MapViewController.swift in Sources */,
 				EB298C211C413AD2000B6697 /* WaitViewController.swift in Sources */,

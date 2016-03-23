@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
-import Alamofire
 import FBSDKLoginKit
 
 class SelectGroupViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
@@ -18,6 +16,7 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
     var groupId: [String] = []
     var myId: String = ""
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    var group:Group!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,9 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
         self.tableView.delegate = self
         self.tableView.dataSource = self
         // Do view setup here.
+        myId = appDelegate.myId
+        
+        group = Group(myId: appDelegate.myId, groupId: appDelegate.groupId)
         
         let leftBarButton = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "logout")
         self.navigationItem.leftBarButtonItem = leftBarButton
@@ -34,7 +36,7 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
         self.tableView.addGestureRecognizer(longPressRecognizer)
         
-        myId = appDelegate.myId
+        
         load()
     }
     
@@ -42,22 +44,12 @@ class SelectGroupViewController: UIViewController , UITableViewDelegate, UITable
         groupId.removeAll(keepCapacity: false)
         groupName.removeAll(keepCapacity: false)
         self.tableView.reloadData()
-        let query = "{\"user_id\":\"" + myId + "\"}"
-        let url:NSURL = NSURL(string:"http://kawakawaplanning.dip.jp:8080/getgroup")!
-        let request = NSMutableURLRequest(URL: url)
         
-        request.HTTPMethod = "POST"
-        request.HTTPBody = query.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(),
-            completionHandler: {(response:NSURLResponse?, data:NSData?, error:NSError? ) in
-                var json = JSON.parse( NSString(data: data!, encoding: NSUTF8StringEncoding)! as String )
-                for var i = 0; i < json["data"].count; i++ {
-                    self.groupName.append("\(json["data"][i]["group_name"])")
-                    self.groupId.append("\(json["data"][i]["group_id"])")
-                }
-                self.tableView.reloadData()
-        })
+        let response = group.getGroup()
+        print(response)
+        groupId = response.id
+        groupName = response.name
+        self.tableView.reloadData()
     }
     
     @IBAction func logout(){

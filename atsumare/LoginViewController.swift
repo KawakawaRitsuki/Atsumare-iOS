@@ -46,6 +46,20 @@ class LoginViewController: UIViewController ,FBSDKLoginButtonDelegate{
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+//        let view = twLoginView.subviews.last!
+//        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height + 400)
+//        twLoginView.transform = CGAffineTransformMakeScale(1.0, 2.0)
+        /*
+        twLoginView.layer.borderWidth = 5.0
+        twLoginView.layer.borderColor = UIColor(red:0.114,green:0.631,blue:0.949,alpha:1.0).CGColor
+        
+        fbLoginView.layer.borderWidth = 6.0
+        fbLoginView.layer.borderColor = UIColor(red:0.255,green:0.365,blue:0.682,alpha:1.0).CGColor
+*/
+    }
+    
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         

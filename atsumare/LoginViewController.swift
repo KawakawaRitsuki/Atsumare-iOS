@@ -68,12 +68,44 @@ class LoginViewController: UIViewController ,FBSDKLoginButtonDelegate{
         } else if result.isCancelled {
             //キャンセル処理
         } else {
-            if ApiConnection.post("twittercheck",message: "{\"user_id\":\"" + "fb_" + result.token.userID + "\"}") == "0"{
+            if (ApiConnection.post("twittercheck",message: "{\"user_id\":\"" + "fb_" + result.token.userID + "\"}") == "0"){
+                
                 appDelegate.myId = "fb_" + result.token.userID
                 
-                self.performSegueWithIdentifier("toSelect",sender: nil)
+                let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "GroupSelectStoryBoard" ) as! UIViewController
+                self.presentViewController( targetViewController, animated: true, completion: nil)
             }else{
                 //未登録
+                var nickNameTextField: UITextField?
+                let alertController = UIAlertController(title: "ニックネーム設定", message: "あなたのニックネームを教えて下さい！", preferredStyle: .Alert)
+                let otherAction = UIAlertAction(title: "OK", style: .Default) {
+                    action in
+                    
+                    ApiConnection.post("signup", message: "{\"user_id\":\"" + "fb_" + result.token.userID + "\",\"password\":\"\",\"user_name\":\"" + (nickNameTextField?.text)! + "\"}")
+                    let alertController1 = UIAlertController(title: "登録完了", message: "会員登録が完了しました！OKボタンを押してはじめよう！", preferredStyle: .Alert)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: .Default) {
+                        action in
+                        self.appDelegate.myId = "fb_" + result.token.userID
+                        
+                        self.performSegueWithIdentifier("toSelect",sender: nil)
+                    }
+                    alertController1.addAction(okAction)
+                    self.presentViewController(alertController1, animated: true, completion: nil)
+                    
+                }
+                let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
+                    action in
+                }
+                
+                alertController.addAction(otherAction)
+                alertController.addAction(cancelAction)
+                alertController.addTextFieldWithConfigurationHandler { textField -> Void in
+                    nickNameTextField = textField
+                    textField.placeholder = "グループ名"
+                }
+                presentViewController(alertController, animated: true, completion: nil)
+
             }
             
         }

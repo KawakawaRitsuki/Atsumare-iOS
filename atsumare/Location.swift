@@ -53,7 +53,7 @@ class Location:NSObject{
         var json = JSON.parse(ApiConnection.post("getlocate" , message: "{\"group_id\":\"" + groupId + "\"}"))
         for var i = 0; i < json["data"].count; i++ {
 
-            call(name: json["data"][i]["user_id"].stringValue,lon: json["data"][i]["longitude"].doubleValue, lat: json["data"][i]["latitude"].doubleValue,login: json["data"][i]["login"].intValue,id: i)
+            call(name: json["data"][i]["user_name"].stringValue,lon: json["data"][i]["longitude"].doubleValue, lat: json["data"][i]["latitude"].doubleValue,login: json["data"][i]["login"].intValue,id: i)
         }
     }
     

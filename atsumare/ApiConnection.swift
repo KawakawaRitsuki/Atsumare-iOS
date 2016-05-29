@@ -21,7 +21,7 @@ class ApiConnection {
         
         do {
             let data:NSData = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
-            print(data)
+//            print(data)
             let str = NSString(data:data, encoding:NSUTF8StringEncoding)
             return str as! String
         } catch (let e) {
